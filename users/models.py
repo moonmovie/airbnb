@@ -9,13 +9,8 @@ class User(AbstractUser):
 
     GENDER_MALE = "male"
     GENDER_FEMALE = "female"
-    GENDER_OTHER = "other"
 
-    GENDER_CHOICES = (
-        (GENDER_MALE, "Male"),
-        (GENDER_FEMALE, "Female"),
-        (GENDER_OTHER, "Other"),
-    )
+    GENDER_CHOICES = ((GENDER_MALE, "Male"), (GENDER_FEMALE, "Female"))
 
     LANGUAGE_ENGLISH = "En"
     LANGUAGE_KOREAN = "Kr"
@@ -26,7 +21,7 @@ class User(AbstractUser):
     CURRENCY_KRW = "krw"
 
     CURRENCY_COICES = ((CURRENCY_USD, "USD"), (CURRENCY_KRW, "KRW"))
-    profileimg = models.ImageField(blank=True)
+    profileimg = models.ImageField(upload_to="profile", blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
     bio = models.TextField(default="", blank=True)
     birthday = models.DateField(blank=True, null=True)
