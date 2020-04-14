@@ -36,5 +36,5 @@ class Review(core_models.TimeStampedmodel):
             + self.value
         ) / 6
 
-        return round(avg, 2)
+        return avg
 

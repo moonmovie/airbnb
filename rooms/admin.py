@@ -30,7 +30,8 @@ class RoomAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             "Basic Info",
-            {"fields": ("name", "description", "country", "city", "address", "price")},
+            {"fields": ("name", "description", "country", "city",
+             "address", "price", "room_type",)},
         ),
         ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
         ("Space", {"fields": ("guests", "beds", "bedsrooms", "baths")}),
@@ -108,3 +109,5 @@ class PhotoAdmin(admin.ModelAdmin):
         return mark_safe(f'<img width="5%" src = "{object.file.url}"/>')
 
     get_thumbnail.short_description = "thumbnail"
+    
+    
